@@ -1,6 +1,37 @@
-# Html
+# 📚 HTML Course Outline
 
-1:Brainstroming, Introduction of Web Development, Web Architectures, Basic Html Tags
-2:Img, Paragraphs, Anchor Tags, Lists
-3:Iframes, Videos
-4:Folder Structure, Multi page website
+A structured and beginner-friendly roadmap to learning the fundamentals of web development.
+
+---
+
+## **📘 Class 1 — Introduction to Web Development**
+
+- Brainstorming & understanding the web
+- What is Web Development?
+- Client–Server Architecture
+- Basic HTML structure & essential tags
+
+---
+
+## **🖼️ Class 2 — Working With Content**
+
+- Image tag (`<img>`)
+- Paragraphs & text formatting
+- Anchor tags (links)
+- Ordered & unordered lists
+
+---
+
+## **🎥 Class 3 — Embedding External Content**
+
+- iFrames
+- Embedding videos
+- Understanding responsive media
+
+---
+
+## **🗂️ Class 4 — Project Structure**
+
+- Creating a proper folder structure
+- Linking pages
+- Building a multi-page website
