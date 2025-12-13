@@ -36,3 +36,18 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Linking pages
 - Building a multi-page website
 - Tables
+
+## **🗂️ Class 5 — Introduction to Css**
+
+- 3 ways to write css
+
+- Priorities in Css
+- Lowest Priority: External Css
+- Medium Priority: Internal Css
+- Highest Priority: Inline Css
+
+- lowest priority: Tag Selector
+- priority higher than tag sel: Class Selector
+
+- Tag & Class Selector
+- Basic Css properties
