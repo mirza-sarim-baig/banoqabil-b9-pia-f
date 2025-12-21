@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(248, 248, 248);
+}
+
+.productSection{
+    margin-top: 50px;
+}
+
+h1{
+    text-align: center;
+}
+.pCardsWrapper{
+    margin-top: 100px;
+}
+
+.pCardsWrapper h2{
+    margin-bottom: 5px ;
+}
+
+.pCardsWrapper p{
+    font-size: 14px;
+}
+
+
+.pCardsWrapper > div{
+    height: 300px;
+    width: 210px;
+    /* background-color: #32A9CC; */
+    margin: 10px 50px 20px 0px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.pCardsWrapper img{
+    width: 80%;
+    margin-top: -60px;
+}
+
+.pricenSizeWrapper{
+margin:20px 0;
+}
+
+.pCardsWrapper span{
+font-size: 14px;
+}
+
+.sizesWrapper{
+    display: inline;
+        margin-right: 70px;
+}
+
+.pPrice{
+    font-weight: bold   ;
+}
+.pCardsWrapper button{
+    display: block;
+    margin: auto;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid #ffc800;
+    color: #ffc800;
+    background: none;
+}
+
+
+
+.blueHoodie:hover{
+    background-color: #32A9CC;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.blueHoodie:hover button{
+    color: white;
+    border: 1px solid white;
+}
+
+.yellowHoodie:hover{
+    background-color: #ffc800;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+.yellowHoodie:hover button{
+    color: white;
+    border: 1px solid white;
+}
+
+button:hover{
+    background-color: #ffc800;
+    cursor: pointer;
+}

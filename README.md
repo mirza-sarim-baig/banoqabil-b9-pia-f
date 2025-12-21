@@ -61,3 +61,7 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - overflow properties
 - min & max height
 - github workflow
+
+## **🗂️ Class 8 — Flex Box**
+
+- Flex properties
