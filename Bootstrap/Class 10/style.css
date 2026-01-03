@@ -1,0 +1,29 @@
+.text-brown{
+    color: brown;
+}
+
+h1{
+    font-size: 60px !important;
+}
+
+section.cards-wrapper{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+section.cards-wrapper > div{
+    height: 300px;
+    width: 300px;
+    background-color: brown;
+}
+
+@media (max-width:425px){
+    h1{
+        font-size: 45px !important;
+    }
+    section > div{
+    height: 250px;
+}
+}
