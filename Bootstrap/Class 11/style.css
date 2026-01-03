@@ -1,0 +1,95 @@
+
+
+.grid-row{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* margin-bottom: 10px; */
+}
+
+.row > div{
+    height: 200px;
+    /* width: 200px; */
+    background-color: rgb(128, 27, 27);
+    border-radius: 10px;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+}
+    
+.parent > div{
+    border-radius: 10px;
+}
+
+.div1 {
+    grid-row: span 3 / span 3;
+      background: linear-gradient(to right, #093028, #237a57);
+}
+
+.div2 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 4;
+      background: linear-gradient(to right, #0f5648, #237a57);
+}
+
+.div3 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 1;
+      background: linear-gradient(to right, #567c75, #237a57);
+
+}
+
+.div4 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 1;
+      background: linear-gradient(to right, #567c75, #237a57);
+
+}
+
+.div5 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 4;
+    grid-row-start: 1;
+    background: linear-gradient(to right, #473f3f, #237a57);
+
+}
+
+.div6 {
+    grid-column-start: 4;
+    grid-row-start: 5;
+    background: linear-gradient(to right, #000000, #237a57);
+
+}
+
+.div7 {
+    grid-column-start: 2;
+    grid-row-start: 6;
+      background: linear-gradient(to right, #567c75, #237a57);
+
+}
+
+.div8 {
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 6;
+      background: linear-gradient(to right, #304541, #237a57);
+
+}
+
+.div9 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 2;
+    grid-row-start: 3;
+      background: linear-gradient(to right, #3a4644, #274f3f);
+
+}
+        
