@@ -82,3 +82,8 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Introduction to grids
 - Responsive grid layouts
 - https://cssgridgenerator.io/ (tool to create modern grid layouts)
+
+## **🗂️ Class 12 — Positions**
+
+- Absolute
+-
