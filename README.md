@@ -85,5 +85,10 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 
 ## **🗂️ Class 12 — Positions**
 
-- Absolute
--
+- Absolute, Relative, Fixed, Sticky
+
+## **🗂️ Class 13 — Javascript**
+
+- Introduction and core concepts
+- High level, Interpretor, Dynamic Data types, Single Threaded, Synchronous, Non-blocking i/o
+- Variable Declaration using var
