@@ -37,6 +37,8 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Building a multi-page website
 - Tables
 
+# 📚 CSS Course Outline
+
 ## **🗂️ Class 5 — Introduction to Css**
 
 - 3 ways to write css
@@ -87,8 +89,17 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 
 - Absolute, Relative, Fixed, Sticky
 
+# 📚 JS Course Outline
+
 ## **🗂️ Class 13 — Javascript**
 
 - Introduction and core concepts
 - High level, Interpretor, Dynamic Data types, Single Threaded, Synchronous, Non-blocking i/o
 - Variable Declaration using var
+
+## **🗂️ Class 14 — JS Variables & Their Scopes**
+
+- Difference bw Var, Let & Const
+- Block & Functional Scope
+- Hoisting
+- Prompt(Taking input from user)
