@@ -103,3 +103,9 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Block & Functional Scope
 - Hoisting
 - Prompt(Taking input from user)
+
+## **🗂️ Class 15 - JS Conditional Statements**
+
+- Data types in js
+- If else conditions
+- Objects
