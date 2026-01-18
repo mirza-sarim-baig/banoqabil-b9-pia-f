@@ -109,3 +109,9 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Data types in js
 - If else conditions
 - Objects
+
+## **🗂️ Class 16 - Forms, Objects, User signup**
+
+- How to take input from user (input element)
+- Objects
+- DOM
