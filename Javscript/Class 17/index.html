@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #536976 0%, #bbd2c5 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+      }
+
+      h1 {
+        color: #536976;
+        margin-bottom: 30px;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #536976;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #bbd2c5;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+        background: white;
+      }
+
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        outline: none;
+        border-color: #536976;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #536976 0%, #bbd2c5 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(83, 105, 118, 0.3);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #536976;
+        font-size: 14px;
+      }
+
+      .signup-link a {
+        color: #536976;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      .forgot-password a {
+        color: #536976;
+        text-decoration: none;
+        font-size: 13px;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome Back</h1>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="userEmail">Email</label>
+          <input type="email" id="userEmail" name="userEmail" required />
+        </div>
+
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input
+            type="password"
+            id="userPassword"
+            name="userPassword"
+            required
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Log In</button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a href="./singup.html">Sign up</a>
+      </div>
+    </div>
+
+    <script>
+      var arrOfNum = [1, 2, 3, 4, 5];
+      for (var i = 0; i < arrOfNum.length; i++) {
+        console.log(arrOfNum[i]);
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = {
+            userEmail: document.getElementById("userEmail").value,
+            userPassword: document.getElementById("userPassword").value,
+          };
+
+          let savedUser = JSON.parse(localStorage.getItem("userObj"));
+          console.log(savedUser[0]);
+
+          for (var i = 0; i < savedUser.length; i++) {
+            if (
+              savedUser[i].userEmail == formData.userEmail &&
+              savedUser[i].userPassword == formData.userPassword
+            ) {
+              console.log("Login Data:", formData);
+              alert("Login successful!");
+            } else {
+              alert("Wrong Credentials");
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
