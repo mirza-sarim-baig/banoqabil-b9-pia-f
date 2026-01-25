@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zyobix Learning - Modern Education Platform</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #536976;
+        --secondary-color: #bbd2c5;
+        --text-dark: #2c3e50;
+        --text-light: #ecf0f1;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+      }
+
+      /* Navigation */
+      nav {
+        background-color: var(--primary-color);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: var(--text-light);
+        font-size: 1.8rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: var(--secondary-color);
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-light);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      /* Banner Section */
+      .banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #3d4f5c 100%
+        );
+        color: var(--text-light);
+        padding: 120px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: rgba(187, 210, 197, 0.1);
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .banner .container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .banner h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .banner p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .banner-btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .banner-btn:hover {
+        background-color: var(--text-light);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Brand Slider */
+      .brand-slider {
+        padding: 60px 20px;
+        background-color: #f8f9fa;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 50px;
+        color: var(--text-dark);
+        font-weight: 700;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slider-container {
+        display: flex;
+        gap: 30px;
+        animation: slide 20s linear infinite;
+      }
+
+      .brand-logo {
+        flex: 0 0 150px;
+        height: 80px;
+        background-color: var(--white);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: var(--primary-color);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .brand-logo:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .slider-container {
+        animation-play-state: paused;
+      }
+
+      .slider-wrapper:hover .slider-container {
+        animation-play-state: running;
+      }
+
+      /* Featured Courses */
+      .courses {
+        padding: 80px 20px;
+        background-color: var(--white);
+      }
+
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .course-card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--secondary-color);
+      }
+
+      .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .course-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+        font-size: 3rem;
+      }
+
+      .course-content {
+        padding: 25px;
+      }
+
+      .course-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .course-content p {
+        color: #666;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .course-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+
+      .course-duration {
+        color: var(--secondary-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .course-btn {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        padding: 8px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .course-btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #f0f4f8 0%, #f8fbff 100%);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+      }
+
+      .stars {
+        color: #ffc107;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+      }
+
+      .testimonial-text {
+        color: #555;
+        margin-bottom: 20px;
+        font-style: italic;
+        line-height: 1.8;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+
+      .author-info h4 {
+        color: var(--text-dark);
+        font-size: 1rem;
+        margin-bottom: 2px;
+      }
+
+      .author-info p {
+        color: var(--secondary-color);
+        font-size: 0.85rem;
+      }
+
+      /* CTA Section */
+      .cta {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #3d4f5c 100%
+        );
+        color: var(--text-light);
+        padding: 80px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: rgba(187, 210, 197, 0.08);
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .cta .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .cta p {
+        font-size: 1.15rem;
+        margin-bottom: 35px;
+        opacity: 0.95;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 15px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.05rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background-color: var(--text-light);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #2c3e50;
+        color: var(--text-light);
+        padding: 50px 20px 20px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-section h3 {
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-section ul li a {
+        color: #bbb;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .footer-section p {
+        color: #aaa;
+        line-height: 1.8;
+        font-size: 0.95rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid #444;
+        color: #999;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        nav ul {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          gap: 0;
+          padding: 20px;
+          border-bottom: 1px solid rgba(187, 210, 197, 0.2);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        nav ul.active {
+          max-height: 300px;
+        }
+
+        nav ul li {
+          padding: 10px 0;
+        }
+
+        nav ul a {
+          display: block;
+          padding: 10px 0;
+        }
+
+        nav .container {
+          position: relative;
+        }
+
+        nav ul {
+          gap: 1rem;
+        }
+
+        .banner h1 {
+          font-size: 2.2rem;
+        }
+
+        .banner p {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .cta h2 {
+          font-size: 1.8rem;
+        }
+
+        .courses-grid,
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="container">
+        <div class="logo" id="userName"></div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner" id="home">
+      <div class="container">
+        <h1>Welcome to Zyobix Learning</h1>
+        <p>
+          Master new skills and advance your career with our comprehensive
+          online courses
+        </p>
+        <button class="banner-btn">Get Started Today</button>
+      </div>
+    </section>
+
+    <!-- Brand Slider -->
+    <section class="brand-slider">
+      <div class="container">
+        <h2 class="section-title">Trusted by Thousands of Students</h2>
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <div class="brand-logo">TechHub</div>
+            <div class="brand-logo">InnovateLab</div>
+            <div class="brand-logo">CodeAcad</div>
+            <div class="brand-logo">SkillBoost</div>
+            <div class="brand-logo">FuturePath</div>
+            <div class="brand-logo">LearnHub</div>
+            <div class="brand-logo">TechHub</div>
+            <div class="brand-logo">InnovateLab</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="courses" id="courses">
+      <div class="container">
+        <h2 class="section-title">Featured Courses</h2>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-image">🎓</div>
+            <div class="course-content">
+              <h3>Web Development</h3>
+              <p>
+                Learn HTML, CSS, JavaScript, and build responsive modern
+                websites from scratch.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">8 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-image">🤖</div>
+            <div class="course-content">
+              <h3>AI & Machine Learning</h3>
+              <p>
+                Master artificial intelligence and machine learning with Python,
+                TensorFlow, and more.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">10 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-image">📱</div>
+            <div class="course-content">
+              <h3>Mobile App Development</h3>
+              <p>
+                Create iOS and Android apps using React Native and Flutter
+                frameworks.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">9 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-image">💼</div>
+            <div class="course-content">
+              <h3>Business Analytics</h3>
+              <p>
+                Analyze business data and make informed decisions using Excel,
+                Python, and Tableau.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">6 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-image">🔐</div>
+            <div class="course-content">
+              <h3>Cybersecurity</h3>
+              <p>
+                Protect systems and networks with essential cybersecurity
+                principles and practices.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">8 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-image">☁️</div>
+            <div class="course-content">
+              <h3>Cloud Computing</h3>
+              <p>
+                Learn AWS, Azure, and Google Cloud for deploying scalable
+                applications.
+              </p>
+              <div class="course-meta">
+                <span class="course-duration">7 weeks</span>
+                <button class="course-btn">Enroll</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Students Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p class="testimonial-text">
+              "Zyobix Learning completely transformed my career. The courses are
+              well-structured and the instructors are amazing!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AJ</div>
+              <div class="author-info">
+                <h4>Ahmed Johnson</h4>
+                <p>Full Stack Developer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p class="testimonial-text">
+              "I landed my dream job within 2 months of completing the Web
+              Development course. Highly recommended!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <h4>Sarah Martinez</h4>
+                <p>Frontend Engineer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p class="testimonial-text">
+              "The AI & ML course was exactly what I needed. Great content,
+              practical projects, and supportive community."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">PK</div>
+              <div class="author-info">
+                <h4>Priya Kumar</h4>
+                <p>Data Scientist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p class="testimonial-text">
+              "Best investment I made for my career. The cloud computing course
+              opened many opportunities for me."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MC</div>
+              <div class="author-info">
+                <h4>Michael Chen</h4>
+                <p>Cloud Architect</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <h2>Ready to Transform Your Career?</h2>
+        <p>
+          Join thousands of successful students and start learning today. Get a
+          30% discount on your first course enrollment.
+        </p>
+        <button class="cta-button">Start Learning Now</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Zyobix</h3>
+          <p>
+            Zyobix Learning is a premier online education platform dedicated to
+            providing high-quality courses and training to students worldwide.
+          </p>
+          <div class="social-links">
+            <a href="#">f</a>
+            <a href="#">𝕏</a>
+            <a href="#">in</a>
+            <a href="#">yt</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Courses</h3>
+          <ul>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">AI & Machine Learning</a></li>
+            <li><a href="#">Mobile Apps</a></li>
+            <li><a href="#">Cloud Computing</a></li>
+            <li><a href="#">Cybersecurity</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter for exclusive updates and course offers.
+          </p>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            style="
+              width: 100%;
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              margin-top: 10px;
+            "
+          />
+          <button
+            style="
+              width: 100%;
+              padding: 10px;
+              margin-top: 10px;
+              background-color: var(--secondary-color);
+              border: none;
+              border-radius: 5px;
+              color: var(--primary-color);
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor = '#fff'"
+            onmouseout="this.style.backgroundColor = 'var(--secondary-color)'"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Zyobix Learning. All rights reserved. | Privacy Policy |
+          Terms of Service
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      window.onload = function () {
+        let currentUser = JSON.parse(localStorage.getItem("loggedinUser"));
+        if (!currentUser) {
+          window.location.href = "index.html";
+          return;
+        }
+        document.getElementById("userName").innerText = currentUser.username;
+      };
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      // Close menu when a link is clicked
+      const navLinks = navMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

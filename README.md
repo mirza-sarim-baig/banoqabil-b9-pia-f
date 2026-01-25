@@ -115,3 +115,15 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - How to take input from user (input element)
 - Objects
 - DOM
+
+## **🗂️ Class 17 - User Signup & Login using local storage**
+
+- Making Signup and Login form using Claude.ai
+- Extracting data from form and saving it to localstorage
+- Validating user
+- Loops and arrays
+
+## **🗂️ Class 18 - User Signup & Login using local storage with validations**
+
+- Saving users in local storage
+- Page redirection according to user login
