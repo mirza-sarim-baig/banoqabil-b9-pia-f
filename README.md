@@ -127,3 +127,9 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 
 - Saving users in local storage
 - Page redirection according to user login
+
+## **🗂️ Class 19 - API & DOM**
+
+- Getting users & products data from api
+- Mapping the data in html
+- Hitting individual object to show its details on separate page
