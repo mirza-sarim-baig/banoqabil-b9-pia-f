@@ -214,6 +214,7 @@
     <script>
       let product = JSON.parse(localStorage.getItem("productId"));
       let productDetailCard = document.getElementById("productDetailCard");
+      let currentProduct = null;
 
       const getProduct = async () => {
         try {
@@ -221,6 +222,7 @@
             `https://fakestoreapi.com/products/${product}`,
           );
           response = await response.json();
+          currentProduct = response;
           console.log(response);
 
           // Generate star rating display
@@ -240,34 +242,34 @@
               <div class="product-image">
                 <img src="${response.image}" alt="${response.title}">
               </div>
-              
+
               <div class="product-details">
                 <h2 class="product-title">${response.title}</h2>
-                
+
                 <span class="product-category">${response.category}</span>
-                
+
                 <div class="product-price">$${response.price}</div>
-                
+
                 <div class="product-rating">
                   <div class="rating-stars">
                     ${starsHTML}
                   </div>
                   <span class="rating-info">
-                    <span class="rating-rate">${response.rating.rate}</span> out of 5 
+                    <span class="rating-rate">${response.rating.rate}</span> out of 5
                     <span>(${response.rating.count} reviews)</span>
                   </span>
                 </div>
-                
+
                 <div>
                   <p class="description-title">Description</p>
                   <p class="product-description">${response.description}</p>
                 </div>
-                
+
                 <div class="action-buttons">
-                  <button class="btn btn-primary" onclick="alert('Added to cart!')">Add to Cart</button>
+                  <button class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
                   <button class="btn btn-secondary" onclick="window.history.back()">Back to Products</button>
                 </div>
-                
+
                 <div class="product-id">Product ID: ${response.id}</div>
               </div>
             </div>
@@ -280,6 +282,14 @@
       };
 
       getProduct();
+
+      const addToCart = async () => {
+        console.log("Product added to cart!", currentProduct);
+
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(currentProduct);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      };
     </script>
   </body>
 </html>

@@ -133,3 +133,10 @@ A structured and beginner-friendly roadmap to learning the fundamentals of web d
 - Getting users & products data from api
 - Mapping the data in html
 - Hitting individual object to show its details on separate page
+
+## **🗂️ Class 20 - DOM Handling Cart Items**
+
+- Getting products data from api
+- Mapping them on products page
+- Made a new page for product detail
+- From product detail page user can add item to cart which will be saved in localstorage
